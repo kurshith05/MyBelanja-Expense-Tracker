@@ -13,7 +13,7 @@ interface Props {
 }
 
 function fmt(n: number, currency: string) {
-  return formatCurrency(n, currency, false);
+  return formatCurrency(n, currency, true);
 }
 
 function StatCard({ label, value, sub, icon, color, trend }: {

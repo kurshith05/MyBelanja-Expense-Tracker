@@ -13,7 +13,7 @@ interface Props {
 }
 
 function fmt(n: number, currency: string) {
-  return formatCurrency(n, currency, false);
+  return formatCurrency(n, currency, true);
 }
 
 export default function MonthlyBudget({ expenses, budget, income, currency, onBudgetChange, onIncomeChange }: Props) {
@@ -170,9 +170,9 @@ export default function MonthlyBudget({ expenses, budget, income, currency, onBu
                 Monthly Budget
               </label>
               <div className="relative">
-                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-bold"
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-bold"
                   style={{ color: '#7C3AED', pointerEvents: 'none', whiteSpace: 'nowrap' }}>{currencySymbol(currency)}</span>
-                <input type="number" min="0" step="100" value={newBudget}
+                <input type="number" min="0" step="0.01" value={newBudget}
                   onChange={e => setNewBudget(e.target.value)}
                   className="w-full pr-3 py-2.5 rounded-xl text-sm outline-none"
                   style={{ background: '#F9F8FF', border: '1.5px solid #E5E0F8', color: '#1A1028', paddingLeft: currencyInputPadding(currency) }}
@@ -187,9 +187,9 @@ export default function MonthlyBudget({ expenses, budget, income, currency, onBu
                 Monthly Income
               </label>
               <div className="relative">
-                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-bold"
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-bold"
                   style={{ color: '#10B981', pointerEvents: 'none', whiteSpace: 'nowrap' }}>{currencySymbol(currency)}</span>
-                <input type="number" min="0" step="100" value={newIncome}
+                <input type="number" min="0" step="0.01" value={newIncome}
                   onChange={e => setNewIncome(e.target.value)}
                   className="w-full pr-3 py-2.5 rounded-xl text-sm outline-none"
                   style={{ background: '#F9F8FF', border: '1.5px solid #E5E0F8', color: '#1A1028', paddingLeft: currencyInputPadding(currency) }}
